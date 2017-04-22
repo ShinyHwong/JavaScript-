@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>备忘录</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/jquery.datetimepicker.css">
+</head>
+<body>
+<div class="container">
+    <!--头部logo-->
+    <div class="banner">
+        <img src="images/logo.jpg" alt="">
+    </div>
+    <!--输入框-->
+    <div class="nav">
+        <div class="log">
+            <img src="images/logo.jpg" alt="">
+        </div>
+        <div class="input">
+            <form action="">
+                <input type="text">
+                <input type="submit">
+            </form>
+        </div>
+    </div>
+    <!--内容栏-->
+    <div class="mainbody">
+        <div class="header">
+            <ul>
+                <li class="cur">待办事项</li>
+                <li>完成事项</li>
+            </ul>
+        </div>
+        <!--待办事项-->
+        <div class="body active">
+            <ul class="task"></ul>
+        </div>
+        <!--完成事项-->
+        <div class="body">
+            <ul class="finish"></ul>
+        </div>
+    </div>
+    <!--返回顶部按钮-->
+    <div class="backTop">
+        <img src="images/Top.jpg" alt="">
+    </div>
+    <!--详情界面-->
+    <div class="detailCover">
+        <div class="detailBox">
+            <div class="detaileHeader">
+                <span class="detailTitle"></span>
+                <span class="close">关闭</span>
+            </div>
+            <input type="text" class="titleChange" placeholder="点此更新标题">
+            <textarea class="detailContent" placeholder="点此更新内容"></textarea>
+            <input type="text" class="detailTime" placeholder="点此设置提醒时间">
+            <button class="update">更新</button>
+        </div>
+        <!--响铃音乐-->
+        <audio src="sound/a4.mp3"></audio>
+    </div>
+</div>
+
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/jquery.datetimepicker.full.js"></script>
+<script src="js/store.min.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
