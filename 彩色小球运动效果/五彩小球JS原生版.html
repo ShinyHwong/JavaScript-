@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多彩小球</title>
+    <style>
+        body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            background-color: #000;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<script src="js/ColorBall_JS.js"></script>
+<script>
+    //新建数组对象及颜色数据
+    var ballArray = [];
+    var bgcolor = ['yellow', 'red', 'blue', 'tomato', 'green', 'pink', 'white', 'purple'];
+
+    //鼠标移动事件
+    window.onmousemove = function (event) {
+        var event = event || window.event;
+        //创建小球
+        new ColorBall({
+            r: 60, //小球初始化半径
+            x: event.clientX, //小球出现坐标
+            y: event.clientY,
+            bgcolor: bgcolor[randomRange(0, bgcolor.length - 1)] //随机出现颜色
+        })
+    };
+    //设置定时器
+    setInterval(function () {
+        for (var i = 0; i < document.body.children.length; i++) {
+            document.body.removeChild(document.body.children[i]); //清空小球留下的残影
+        }
+        for (var j = 0; j < ballArray.length; j++) {
+            ballArray[j].render(); //小球渲染
+            ballArray[j].update(); //小球动态更新
+        }
+    }, 50);
+
+
+</script>
+</body>
+</html>

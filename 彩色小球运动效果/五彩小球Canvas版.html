@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{
+            margin:0;
+            padding:0;
+            overflow: hidden;
+        }
+        #cvs{
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+<canvas id="cvs"  style="border: 1px solid #ccc;"></canvas>
+<script src="js/ColorBall_Canvas.js"></script>
+<script>
+    var cvs = document.getElementById('cvs');
+    cvs.width = window.innerWidth;
+    cvs.height = window.innerHeight;
+    var ctx = cvs.getContext('2d');
+    var ballArr = []; //定义数组接收小球
+    var colorArr = ['yellow', 'lightgreen', 'tomato', 'skyblue', 'red']; //定义变化的颜色
+    cvs.onmousemove = function (e) {
+        var Ball = new ColorBall({
+            x : e.offsetX,
+            y : e.offsetY,
+            r : 30,
+            color : colorArr[Math.floor(Math.random() * colorArr.length)]
+        });
+        ballArr.push(Ball);
+    };
+    setInterval(function () {
+        ctx.clearRect(0,0,cvs.width,cvs.height); //清屏不留残影
+        for (var i = 0; i < ballArr.length; i++) {
+            ballArr[i].render(ctx);
+            ballArr[i].update(ballArr);
+        }
+    },50)
+</script>
+</body>
+</html>
